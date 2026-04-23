@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: 'ar'
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "trips"
+    label: "رحلات دهب"
+    folder: "content/trips"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "اسم الرحلة", name: "title", widget: "string"}
+      - {label: "السعر", name: "price", widget: "string"}
+      - {label: "المدة", name: "duration", widget: "string", required: false}
+      - {label: "الوصف والتفاصيل", name: "body", widget: "markdown"}
+      - {label: "الصورة الرئيسية", name: "thumbnail", widget: "image"}
+      - {label: "صور إضافية", name: "gallery", widget: "list", field: {label: صورة, name: image, widget: image}, required: false}
+      - {label: "فيديو", name: "video", widget: "file", required: false}
